@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bitcoin Xor Secret Exponents</title>
+    <script src="xor.js"></script>
+  </head>
+  <body>
+	<input id="sexp1" type="text" size="67"/><input id="sexp" type="text" size="67"/><br/><input id="result" type="text" size="67"/>
+	<input type="button" id="xor" value="xor" onclick="xorSexps()">
+  <script>
+	function xorSexps(){
+		var hexArr="";
+		xor(new Buffer(document.getElementById("val1").value, 'hex'), new Buffer(document.getElementById("val2").value, 'hex')).toJSON().data.forEach(function(number) {
+			hexArr += ((number.toString(16)==0)?"00":number.toString(16));
+		});
+		document.getElementById("result").value=hexArr;
+	}
+  </script>
+  </body>
+</html>
